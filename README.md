@@ -2,10 +2,10 @@
 
 ## Description
 
-<p> This project is designed to create a webpage to help tennis players find courts in their local area. </p> 
+<p> This project is designed to create a webpage to help tennis players find courts in their local area. </p>
 
-### Technologies 
-    
+### Technologies
+
     - React
     - Vite
     - Google Maps API
