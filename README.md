@@ -8,4 +8,4 @@
     
     - React
     - Vite
-    - SerpApi
+    - Google Maps API
