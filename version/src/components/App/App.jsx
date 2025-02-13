@@ -1,14 +1,26 @@
 import { useState } from "react";
+import { Routes, Route, Navigate, useNavigate } from "react-router-dom";
 import "./App.css";
+import Header from "../Header/Header";
+import Favorites from "../Favorites/Favorites";
+import Main from "../Main/Main";
+import Footer from "../Footer/Footer";
 
 function App() {
   const [count, setCount] = useState(0);
+  const navigate = useNavigate();
 
   return (
-    <>
-      <h1>Hello Vite!</h1>
-      <p>This is your second or third Vite project</p>
-    </>
+    <div className="page">
+      <div className="page__content">
+        <Header />
+        <Routes>
+          <Route path="/" element={<Main />} />
+          <Route path="/favorites" element={<Favorites />} />
+        </Routes>
+        <Footer />
+      </div>
+    </div>
   );
 }
 

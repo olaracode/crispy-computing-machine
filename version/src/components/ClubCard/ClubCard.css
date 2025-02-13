@@ -1,0 +1,61 @@
+.card {
+  border-radius: 5%;
+  height: 326px;
+  width: 282px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  list-style-type: none;
+  justify-content: center;
+  border-color: #808080;
+  border-style: solid;
+  border-width: 0.5px;
+}
+
+.card__image {
+  width: 282px;
+  height: 270px;
+  border-radius: 5% 5% 0 0;
+}
+
+.card__description {
+  display: flex;
+  background-color: #fff;
+  align-items: center;
+  justify-content: space-around;
+  border-radius: 0 0 10px 10px;
+  padding: 11px 20px;
+}
+
+.card__text {
+  font-family: "Inter", Arial, sans-serif;
+  font-weight: 900;
+  font-size: 24px;
+  line-height: 29.05px;
+  color: #000;
+  margin: 0;
+  width: 219px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.card__favorite {
+  background-image: url(../../assets/Like-button.png);
+  background-color: transparent;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 21px;
+  height: 18px;
+  border: none;
+}
+
+.card__favorite:hover {
+  opacity: 50%;
+  transition: 0.2s linear;
+  cursor: pointer;
+}
+
+.card__favorite_active {
+  background-image: url(../../assets/Filled-Button.png);
+}

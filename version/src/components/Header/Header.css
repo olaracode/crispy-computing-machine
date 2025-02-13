@@ -1,0 +1,36 @@
+.header {
+  display: flex;
+  padding-top: 20px;
+  justify-content: space-between;
+  background-color: #026e31;
+  width: 100%;
+}
+
+.header__title {
+  margin: 0;
+  font-family: "CabinetGrotesk-Bold";
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 1.24;
+  cursor: pointer;
+  padding-left: 5px;
+}
+
+.header__favorite {
+  margin: 0;
+  font-family: "CabinetGrotesk-Bold";
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 1.24;
+  cursor: pointer;
+  padding-right: 5px;
+}
+
+.header__link {
+  text-decoration: none;
+  color: #fff;
+}
+
+.header__container {
+  padding-bottom: 15px;
+}
