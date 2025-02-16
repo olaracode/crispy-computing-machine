@@ -14,7 +14,7 @@
 
 .card__image {
   width: 282px;
-  height: 270px;
+  height: 277px;
   border-radius: 5% 5% 0 0;
 }
 
@@ -24,11 +24,11 @@
   align-items: center;
   justify-content: space-around;
   border-radius: 0 0 10px 10px;
-  padding: 11px 20px;
+  padding: 10px 20px;
 }
 
 .card__text {
-  font-family: "Inter", Arial, sans-serif;
+  font-family: "CabinetGrotesk-Bold";
   font-weight: 900;
   font-size: 24px;
   line-height: 29.05px;
@@ -48,6 +48,7 @@
   width: 21px;
   height: 18px;
   border: none;
+  cursor: pointer;
 }
 
 .card__favorite:hover {

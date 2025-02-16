@@ -2,8 +2,9 @@ import { useState } from "react";
 import "./Main.css";
 import ClubCard from "../ClubCard/ClubCard";
 
-function Main() {
+function Main({ onFavoriteClick, initialCards, isFavorite }) {
   const [city, setCity] = useState("");
+  const [cards, setCards] = useState([]);
   const handleCityChange = (e) => {
     console.log(e.target.value);
     setCity(e.target.value);
@@ -12,10 +13,10 @@ function Main() {
     setCity("");
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e, initialCards) => {
     e.preventDefault();
     formReset();
-    // renderCards();
+    //setCards(cards, ...initialCards);
   };
 
   return (
@@ -23,7 +24,6 @@ function Main() {
       <div className="main__form-container">
         <form className="main__form" onSubmit={handleSubmit}>
           <label htmlFor="City" className="main__label">
-            City{""}
             <input
               type="City"
               className="main__input"
@@ -38,12 +38,16 @@ function Main() {
         </form>
       </div>
       <ul className="cards__list">
-        <ClubCard />
-        <ClubCard />
-        <ClubCard />
-        <ClubCard />
-        <ClubCard />
-        <ClubCard />
+        {initialCards.map((item) => {
+          return (
+            <ClubCard
+              key={item.name}
+              item={item}
+              onFavoriteClick={onFavoriteClick}
+              isFavorite={isFavorite}
+            />
+          );
+        })}
       </ul>
     </main>
   );
