@@ -6,25 +6,28 @@ import Favorites from "../Favorites/Favorites";
 import Main from "../Main/Main";
 import Footer from "../Footer/Footer";
 import { initialCards } from "../../utils/HardCards";
+import { FavoriteCardContext } from "../../contexts/FavoriteCardContext";
 
 function App() {
   //useState
-  const [favorite, setFavorite] = useState([]);
-  const [className, setClassName] = useState("");
+  const [favorites, setFavorite] = useState([]);
+  const [selectedCard, setSelectedCard] = useState({});
+
+  const [favoriteCard, setFavoriteCard] = useState([]);
 
   //Global Functions
-  const handleFavoriteClick = (id) => {
-    const isFavorite = favorite.includes(id);
+
+  const handleFavoriteClick = (favorite) => {
+    const isFavorite = favorites.find((card) => card.id === favorite.id);
+
     if (!isFavorite) {
-      setFavorite([id, ...favorite]);
+      setFavorite([favorite, ...favorites]);
     } else {
-      setFavorite((favorite) =>
-        favorite.filter((item) => item.name !== item.name)
+      setFavorite((favorites) =>
+        favorites.filter((card) => card.id !== favorite.id)
       );
     }
-    console.log(favorite);
   };
-
   return (
     <div className="page">
       <div className="page__content">
@@ -36,7 +39,7 @@ function App() {
               <Main
                 onFavoriteClick={handleFavoriteClick}
                 initialCards={initialCards}
-                isFavorite={favorite}
+                favoriteCards={favorites}
               />
             }
           />
@@ -44,9 +47,9 @@ function App() {
             path="/favorites"
             element={
               <Favorites
-                favoriteClub={favorite}
+                favoriteClubs={favorites}
                 onFavoriteClick={handleFavoriteClick}
-                isFavorite={favorite}
+                favoriteCards={favorites}
               />
             }
           />

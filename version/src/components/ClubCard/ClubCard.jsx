@@ -1,26 +1,25 @@
 import { useState } from "react";
 import "./ClubCard.css";
+import { FavoriteCardContext } from "../../contexts/FavoriteCardContext";
+import { useContext } from "react";
+import Favorites from "../Favorites/Favorites";
 
-function ClubCard({ onFavoriteClick, item, isFavorite }) {
+function ClubCard({ onFavoriteClick, item, favoriteCards }) {
   //const handlLike = () => {
   //onCardLike(item);
   //};
-  console.log(isFavorite);
+
   const handleFavoriteClick = () => {
-    console.log(item);
+    //console.log(item.name);
     onFavoriteClick(item);
   };
 
-  const favoriteCard = isFavorite.includes(item.name);
+  //const favoriteCard = useContext(FavoriteCardContext);
+  const favoriteCard = favoriteCards.includes(item);
 
   const buttonClassName = favoriteCard
     ? "card__favorite card__favorite_active"
-    : "card__favorite";
-
-  //const isLiked = item.likes.includes(currentUser._id);
-  //console.log(item);
-  //console.log(isLiked);
-  //
+    : "card__favorite ";
 
   return (
     <li className="card" id={item.name}>

@@ -2,7 +2,7 @@ import { useState } from "react";
 import "./Main.css";
 import ClubCard from "../ClubCard/ClubCard";
 
-function Main({ onFavoriteClick, initialCards, isFavorite }) {
+function Main({ onFavoriteClick, initialCards, favoriteCards }) {
   const [city, setCity] = useState("");
   const [cards, setCards] = useState([]);
   const handleCityChange = (e) => {
@@ -44,7 +44,7 @@ function Main({ onFavoriteClick, initialCards, isFavorite }) {
               key={item.name}
               item={item}
               onFavoriteClick={onFavoriteClick}
-              isFavorite={isFavorite}
+              favoriteCards={favoriteCards}
             />
           );
         })}
