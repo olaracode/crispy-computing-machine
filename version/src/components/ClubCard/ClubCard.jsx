@@ -22,10 +22,10 @@ function ClubCard({ onFavoriteClick, item, favoriteCards }) {
     : "card__favorite ";
 
   return (
-    <li className="card" id={item.name}>
-      <img className="card__image" src={item.link} alt={item.name} />
+    <li className="card" id={item.displayName}>
+      <img className="card__image" src={item.photos} alt={item.displayName} />
       <div className="card__description">
-        <h2 className="card__text">{item.name}</h2>
+        <h2 className="card__text">{item.displayName}</h2>
         <button
           className={buttonClassName}
           type="button"

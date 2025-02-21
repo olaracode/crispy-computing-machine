@@ -6,7 +6,7 @@ import Favorites from "../Favorites/Favorites";
 import Main from "../Main/Main";
 import Footer from "../Footer/Footer";
 import { initialCards } from "../../utils/HardCards";
-import { FavoriteCardContext } from "../../contexts/FavoriteCardContext";
+import { findCourts } from "../../utils/PlacesApi";
 
 function App() {
   //useState
@@ -19,15 +19,19 @@ function App() {
 
   const handleFavoriteClick = (favorite) => {
     const isFavorite = favorites.find((card) => card.id === favorite.id);
-
+    const key = favorite.displayName;
     if (!isFavorite) {
       setFavorite([favorite, ...favorites]);
+      localStorage.setItem(key, favorite);
     } else {
       setFavorite((favorites) =>
         favorites.filter((card) => card.id !== favorite.id)
       );
+      localStorage.removeItem(key);
     }
+    console.log(localStorage);
   };
+
   return (
     <div className="page">
       <div className="page__content">
@@ -40,6 +44,7 @@ function App() {
                 onFavoriteClick={handleFavoriteClick}
                 initialCards={initialCards}
                 favoriteCards={favorites}
+                findCourts={findCourts}
               />
             }
           />
