@@ -19,7 +19,7 @@ function Favorites({ favoriteClubs, onFavoriteClick, favoriteCards }) {
           {favoriteClubs.map((item) => {
             return (
               <ClubCard
-                key={item.name}
+                key={item.id}
                 item={item}
                 onFavoriteClick={onFavoriteClick}
                 favoriteCards={favoriteCards}

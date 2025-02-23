@@ -1,25 +1,36 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import "./Main.css";
 import ClubCard from "../ClubCard/ClubCard";
 
 function Main({ onFavoriteClick, initialCards, favoriteCards, findCourts }) {
   const [city, setCity] = useState("");
   const [cards, setCards] = useState([]);
+  const [errorMessage, setErrorMessage] = useState("");
+  const inputRef = useRef(null);
+
   const handleCityChange = (e) => {
     console.log(e.target.value);
     setCity(e.target.value);
+    if (e.target.value.length < 2) {
+      inputRef.current.setCustomValidity("Please input a city.");
+      setErrorMessage("Please input a city.");
+    } else {
+      inputRef.current.setCustomValidity("");
+      setErrorMessage("");
+    }
   };
   function formReset() {
     setCity("");
   }
 
-  const handleSubmit = (e) => {
+  const  handleSubmit = async (e) => {
     e.preventDefault();
     formReset();
-    const cardData = [findCourts()];
-    console.log(cardData);
-    setCards(cardData);
+    const courts = await findCourts();
+    console.log(courts);
+    setCards(courts);
   };
+  console.log(cards);
   const noClubCards = cards.length === 0;
   console.log(noClubCards);
   return (
@@ -34,6 +45,7 @@ function Main({ onFavoriteClick, initialCards, favoriteCards, findCourts }) {
               placeholder="Your City"
               value={city}
               onChange={handleCityChange}
+              ref={inputRef}
               required
             />
           </label>
@@ -49,7 +61,7 @@ function Main({ onFavoriteClick, initialCards, favoriteCards, findCourts }) {
           {cards.map((item) => {
             return (
               <ClubCard
-                key={item.displayName}
+                key={item.id}
                 item={item}
                 onFavoriteClick={onFavoriteClick}
                 favoriteCards={favoriteCards}

@@ -11,15 +11,12 @@ import { findCourts } from "../../utils/PlacesApi";
 function App() {
   //useState
   const [favorites, setFavorite] = useState([]);
-  const [selectedCard, setSelectedCard] = useState({});
-
-  const [favoriteCard, setFavoriteCard] = useState([]);
 
   //Global Functions
 
   const handleFavoriteClick = (favorite) => {
     const isFavorite = favorites.find((card) => card.id === favorite.id);
-    const key = favorite.displayName;
+    const key = favorite.id;
     if (!isFavorite) {
       setFavorite([favorite, ...favorites]);
       localStorage.setItem(key, favorite);

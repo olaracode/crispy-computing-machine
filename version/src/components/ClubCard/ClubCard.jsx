@@ -5,9 +5,7 @@ import { useContext } from "react";
 import Favorites from "../Favorites/Favorites";
 
 function ClubCard({ onFavoriteClick, item, favoriteCards }) {
-  //const handlLike = () => {
-  //onCardLike(item);
-  //};
+  
 
   const handleFavoriteClick = () => {
     //console.log(item.name);
@@ -22,7 +20,7 @@ function ClubCard({ onFavoriteClick, item, favoriteCards }) {
     : "card__favorite ";
 
   return (
-    <li className="card" id={item.displayName}>
+    <li className="card" id={item.id}>
       <img className="card__image" src={item.photos} alt={item.displayName} />
       <div className="card__description">
         <h2 className="card__text">{item.displayName}</h2>
