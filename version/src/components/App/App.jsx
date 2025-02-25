@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Routes, Route, Navigate, useNavigate } from "react-router-dom";
 import "./App.css";
 import Header from "../Header/Header";
@@ -7,7 +7,8 @@ import Main from "../Main/Main";
 import Footer from "../Footer/Footer";
 import { initialCards } from "../../utils/HardCards";
 import { findCourts } from "../../utils/PlacesApi";
-
+import PageNotFound from "../PageNotFound/PageNotFound";
+import { getFavorites, addFavorite, removeFavorite } from "../../utils/api";
 function App() {
   //useState
   const [favorites, setFavorite] = useState([]);
@@ -15,19 +16,32 @@ function App() {
   //Global Functions
 
   const handleFavoriteClick = (favorite) => {
-    const isFavorite = favorites.find((card) => card.id === favorite.id);
-    const key = favorite.id;
+    const isFavorite = favorites.find(
+      (card) => card.displayName === favorite.displayName
+    );
+    //const key = favorite.id;
     if (!isFavorite) {
       setFavorite([favorite, ...favorites]);
-      localStorage.setItem(key, favorite);
+      //localStorage.setItem(key, favorite);
+      addFavorite(favorite);
     } else {
       setFavorite((favorites) =>
         favorites.filter((card) => card.id !== favorite.id)
       );
-      localStorage.removeItem(key);
+      //localStorage.removeItem(key);
+      removeFavorite(favorite.id);
     }
     console.log(localStorage);
   };
+
+  useEffect(() => {
+    getFavorites()
+      .then((data) => {
+        console.log(data);
+        setFavorite(data);
+      })
+      .catch(console.error);
+  }, []);
 
   return (
     <div className="page">
@@ -55,6 +69,7 @@ function App() {
               />
             }
           />
+          <Route path="*" element={<PageNotFound />} />
         </Routes>
         <Footer />
       </div>

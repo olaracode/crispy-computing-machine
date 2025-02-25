@@ -1,4 +1,3 @@
-import { baseUrl } from "./constants";
 import { APIkey } from "./constants";
 
 function checkResponse(res) {
@@ -41,16 +40,15 @@ function checkResponse(res) {
     : (d[l] = (f, ...n) => r.add(f) && u().then(() => d[l](f, ...n)));
 })({
   key: APIkey,
-  v: "weekly",
 });
 
 const { Place } = await google.maps.importLibrary("places");
 
- async function findCourts() {
+async function findCourts(city) {
   const { Place } = await google.maps.importLibrary("places");
 
   const request = {
-    textQuery: "Tennis courts in Austin",
+    textQuery: `Tennis courts in ${city}`,
     fields: ["displayName", "location", "businessStatus", "photos"],
 
     language: "en-US",
@@ -67,16 +65,6 @@ const { Place } = await google.maps.importLibrary("places");
   } else {
     console.log("No results");
   }
-};
-
-function addFavorite({ item }) {
-  return fetch(`${baseUrl}`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({ item }),
-  }).then(checkResponse);
 }
 
-export { addFavorite, findCourts };
+export { findCourts };

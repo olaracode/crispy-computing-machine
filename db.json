@@ -1,0 +1,10 @@
+{
+  "favorites": [
+    {
+      "id": 0,
+      "displayName": "Dripping Springs Racquet Club",
+      "photos[0].flagContentURI": "https://unsplash.com/photos/green-tennis-court-4gqELewld-A",
+      "isFavorite": true
+    }
+  ]
+}

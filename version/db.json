@@ -1,0 +1,22 @@
+{
+  "favorites": [
+    {
+      "id": "ChIJsRP7KsO0RIYR_WUREtUbPAc",
+      "displayName": "South Austin Tennis Center",
+      "photos": [
+        {
+          "authorAttributions": [
+            {
+              "displayName": "Arda Kert",
+              "uri": "https://maps.google.com/maps/contrib/114778516812379500067",
+              "photoURI": "https://lh3.googleusercontent.com/a-/ALV-UjV7mv_a9hZ_ByVU-kPd5YMRQHM8eiYv-YaTsdwAsvOWtDi0iH0Gvw=s100-p-k-no-mo"
+            }
+          ],
+          "heightPx": 2268,
+          "widthPx": 4032,
+          "flagContentURI": "https://www.google.com/local/imagery/report/?cb_client=maps_api_places.places_api&image_key=!1e10!2sAF1QipOQ6FcSqTUp2x4hTdhnVAxbpok2YhzTnabvGSmB&hl=en-US&gl=us"
+        }
+      ]
+    }
+  ]
+}

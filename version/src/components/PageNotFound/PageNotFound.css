@@ -1,0 +1,13 @@
+.not-found {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  gap: 12px;
+}
+
+.not-found__link {
+  text-decoration: none;
+  color: #fff;
+}

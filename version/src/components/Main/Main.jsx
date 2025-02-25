@@ -23,10 +23,10 @@ function Main({ onFavoriteClick, initialCards, favoriteCards, findCourts }) {
     setCity("");
   }
 
-  const  handleSubmit = async (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     formReset();
-    const courts = await findCourts();
+    const courts = await findCourts(city);
     console.log(courts);
     setCards(courts);
   };

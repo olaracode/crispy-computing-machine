@@ -1,10 +1,13 @@
 import "./Favorites.css";
 import ClubCard from "../ClubCard/ClubCard";
+import { useEffect } from "react";
+import { getFavorites } from "../../utils/api";
 
 function Favorites({ favoriteClubs, onFavoriteClick, favoriteCards }) {
-  console.log(favoriteClubs);
   const isEmptyArray = favoriteClubs.length === 0;
-  console.log(isEmptyArray);
+
+  
+
   return (
     <div className="favorite">
       <h2 className="favorite__title">Your Favorite Courts</h2>
