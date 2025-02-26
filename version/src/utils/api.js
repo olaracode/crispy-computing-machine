@@ -8,13 +8,13 @@ function getFavorites() {
   return fetch(`${baseUrl}/favorites`).then(checkResponse);
 }
 
-function addFavorite({ id, displayName, photos: [flagContentURI] }) {
+function addFavorite(data) {
   return fetch(`${baseUrl}/favorites`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({ id, displayName, photos: [flagContentURI] }),
+    body: JSON.stringify(data),
   }).then(checkResponse);
 }
 

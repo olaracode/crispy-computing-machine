@@ -60,11 +60,22 @@ async function findCourts(city) {
   const { places } = await Place.searchByText(request);
 
   if (places.length) {
-    console.log(places);
-    return places;
+    const filteredPlaces = places.map((place) => filterPlace(place));
+    //console.log(">>>", filteredPlaces);
+    return filteredPlaces;
   } else {
     console.log("No results");
   }
 }
+
+const filterPlace = (place) => {
+  const displayName = place.displayName;
+  const id = place.id;
+  const imageUrl =
+    `https://places.googleapis.com/v1/${place.photos[0].name}/media?maxHeightPx=400&maxWidthPx=400&key=${APIkey}` ||
+    "https://unsplash.com/photos/green-tennis-court-4gqELewld-A";
+
+  return { id, displayName, imageUrl };
+};
 
 export { findCourts };

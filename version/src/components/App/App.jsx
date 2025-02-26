@@ -23,7 +23,7 @@ function App() {
     if (!isFavorite) {
       setFavorite([favorite, ...favorites]);
       //localStorage.setItem(key, favorite);
-      addFavorite(favorite);
+       addFavorite(favorite);
     } else {
       setFavorite((favorites) =>
         favorites.filter((card) => card.id !== favorite.id)

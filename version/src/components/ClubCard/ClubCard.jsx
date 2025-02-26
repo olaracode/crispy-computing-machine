@@ -2,6 +2,7 @@ import { useState } from "react";
 import "./ClubCard.css";
 import { useContext } from "react";
 import Favorites from "../Favorites/Favorites";
+import { APIkey } from "../../utils/constants";
 
 function ClubCard({ onFavoriteClick, item, favoriteCards }) {
   const handleFavoriteClick = () => {
@@ -18,11 +19,7 @@ function ClubCard({ onFavoriteClick, item, favoriteCards }) {
 
   return (
     <li className="card" id={item.id}>
-      <img
-        className="card__image"
-        src={item.photos[0].flagContentURI}
-        alt={item.displayName}
-      />
+      <img className="card__image" src={item.imageUrl} alt={item.displayName} />
       <div className="card__description">
         <h2 className="card__text">{item.displayName}</h2>
         <button
