@@ -42,8 +42,6 @@ function checkResponse(res) {
   key: APIkey,
 });
 
-const { Place } = await google.maps.importLibrary("places");
-
 async function findCourts(city) {
   const { Place } = await google.maps.importLibrary("places");
 
